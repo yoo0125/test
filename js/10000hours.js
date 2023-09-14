@@ -53,16 +53,11 @@ window.onclick = function (event) {
 }
 
 function copyUrl() {
-    let url = window.location.href;
-    let tmp = document.createElement('input');
+    const url = window.location.href;
 
-    document.body.appendChild(tmp);
-    tmp.value = url;
-    tmp.select();
-    copyTextToClipboard("복사할 텍스트");
-    document.body.removeChild(tmp);
-
-    alert("URL이 복사되었습니다.");
+    navigator.clipboard.writeText(url).then(() => {
+        alert("URL이 복사되었습니다"); 
+    });
 }
 
 
